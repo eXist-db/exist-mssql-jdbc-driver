@@ -15,8 +15,8 @@
     <artifactId>exist-mssql-jdbc-driver</artifactId>
     <version>10.2.0.jre8</version>
 
-    <name>MySQL JDBC Driver</name>
-    <description>MySQL JDBC Driver for eXist-db</description>
+    <name>Microsoft SQL Server JDBC Driver</name>
+    <description>Microsoft SQL Server JDBC Driver for eXist-db</description>
     <url>https://exist-db.org/exist-db/jdbc/mssql</url>
 
     <organization>
