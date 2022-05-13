@@ -21,7 +21,7 @@
 
     <organization>
         <name>eXist-db</name>
-        <url>http://exist-db.org</url>
+        <url>https://www.github.com/eXist-db/exist-mssql-jdbc-driver</url>
     </organization>
 
     <licenses>
