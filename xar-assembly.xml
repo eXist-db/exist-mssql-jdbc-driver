@@ -2,7 +2,7 @@
 <package xmlns="http://expath.org/ns/pkg" name="${package-name}" abbrev="${package-abbrev}" version="${project.version}"
     spec="1.0">
     <title>${package-title}</title>
-    <author id="my-organisation">My Organisation</author>
+    <author id="my-organisation">eXist-db</author>
     <website>${project.url}</website>
     <license>GNU Lesser General Public License, version 2.1</license>
     <copyright>true</copyright>
@@ -41,10 +41,10 @@
     <!-- include the XQuery Library modules written in XQuery from this project -->
     <xquerySets>
         <xquerySet>
-            <namespace>https://exist-db.org/exist-db/ns/app/mysql</namespace>
+            <namespace>https://exist-db.org/exist-db/ns/app/mssql</namespace>
             <directory>${basedir}/src/main/xquery</directory>
             <includes>
-                <include>mysql-module.xqm</include>
+                <include>mssql-module.xqm</include>
             </includes>
             <outputDirectory>content</outputDirectory>
         </xquerySet>
@@ -57,10 +57,9 @@
             <artifactId>${project.artifactId}</artifactId>
             <version>${project.version}</version>
         </dependencySet>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependencySet>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
             <version>${project.version}</version>
         </dependencySet>
     </dependencySets>

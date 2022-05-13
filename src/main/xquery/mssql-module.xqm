@@ -1,63 +1,63 @@
 xquery version "3.1";
 
 (:~
- : A module for performing SQL queries against MySQL Databases, returning XML representations of the result sets.
+ : A module for performing SQL queries against mssql Databases, returning XML representations of the result sets.
  :)
-module namespace mysql = "https://exist-db.org/exist-db/ns/app/mysql";
+module namespace mssql = "https://exist-db.org/exist-db/ns/app/mssql";
 import module namespace sql="http://exist-db.org/xquery/sql";
 
-declare variable $mysql:classpath := "com.mysql.cj.jdbc.Driver";
+declare variable $mssql:classpath := "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
 (:~
- : Opens a connection to a MySQL Database
+ : Opens a connection to a mssql Database
  : @param $url The JDBC connection URL
  : @return an xs:long representing the connection handle
  :)
-declare function mysql:get-connection($url as xs:string)
+declare function mssql:get-connection($url as xs:string)
 as xs:long?
 {
-    sql:get-connection($mysql:classpath, $url)
+    sql:get-connection($mssql:classpath, $url)
 };
 
 (:~
- : Opens a connection to a MySQL Database
+ : Opens a connection to a mssql Database
  : @param $url The JDBC connection URL
  : @param $properties The JDBC database connection properties in the form &lt;properties&gt;&lt;property name="" value=""/&gt;&lt;/properties&gt;
  : @return an xs:long representing the connection handle
  :)
-declare function mysql:get-connection($url as xs:string, $properties as element()?)
+declare function mssql:get-connection($url as xs:string, $properties as element()?)
 as xs:long?
 {
-    sql:get-connection($mysql:classpath, $url, $properties)
+    sql:get-connection($mssql:classpath, $url, $properties)
 };
 
 (:~
- : Opens a connection to a MySQL Database
+ : Opens a connection to a mssql Database
  : @param $url The JDBC connection URL
- : @param $username The MySQL database username
- : @param $password The MySQL database password
+ : @param $username The mssql database username
+ : @param $password The mssql database password
  : @return an xs:long representing the connection handle
  :)
-declare function mysql:get-connection($url as xs:string, $username as xs:string, $password as xs:string)
+declare function mssql:get-connection($url as xs:string, $username as xs:string, $password as xs:string)
 as xs:long?
 {
-    sql:get-connection($mysql:classpath, $url, $username, $password)
+    sql:get-connection($mssql:classpath, $url, $username, $password)
 };
 
 (:~
- : Prepares a SQL statement against a MySQL db using the connection indicated by the connection handle.
+ : Prepares a SQL statement against a mssql db using the connection indicated by the connection handle.
  : @param $handle The connection handle
  : @param $sql-statement The SQL statement
  : @return an xs:long representing the statement handle
  :)
-declare function mysql:prepare($handle as xs:long, $sql-statement as xs:string)
+declare function mssql:prepare($handle as xs:long, $sql-statement as xs:string)
 as xs:long?
 {
     sql:prepare($handle,  $sql-statement)
 };
 
 (:~
- : Executes a SQL statement against a MySQL database.
+ : Executes a SQL statement against a mssql database.
  : @param $connection-handle The connection handle
  : @param $sql-statement The SQL statement
  : @param $make-node-from-column-name
@@ -66,7 +66,7 @@ as xs:long?
  : will be replaced by an underscore!)
  : @return the results
  :)
-declare function mysql:execute(
+declare function mssql:execute(
             $connection-handle as xs:long,
             $sql-statement as xs:string,
             $make-node-from-column-name as xs:boolean
@@ -77,7 +77,7 @@ as element()?
 };
 
 (:~
- : Executes a prepared SQL statement against a MySQL database.
+ : Executes a prepared SQL statement against a mssql database.
  : @param $connection-handle The connection handle
  : @param $statement-handle The prepared statement handle
  : @param $parameters Parameters for the prepared statement.
@@ -94,7 +94,7 @@ as element()?
  : will be replaced by an underscore!)
  : @return the results
  :)
-declare function mysql:execute(
+declare function mssql:execute(
             $connection-handle as xs:long,
             $statement-handle as xs:long,
             $parameters as element()?,
