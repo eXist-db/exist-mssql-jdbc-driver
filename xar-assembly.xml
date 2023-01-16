@@ -21,9 +21,7 @@
 
     <!-- Collection inside /db/apps where xar-resources will be copied to -->
     <target>${package-abbrev}</target>
-
-    <prepare>pre-install.xq</prepare>
-
+    
     <!-- includes everything in src/main/xar-resources, README.md, and LICENSE -->
     <fileSets>
         <fileSet>
